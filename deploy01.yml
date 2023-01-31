@@ -1,0 +1,20 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: deploy01
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: depl
+  template:
+    metadata:
+      name: mydeply
+      labels:
+        name: depl
+    spec:
+      containers:
+        - name: container01
+          image: httpd
+          ports:
+          - containerPort: 80  
